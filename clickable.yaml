@@ -1,3 +1,10 @@
 clickable_minimum_required: 8.0.0
 builder: pure-qml-cmake
 kill: qmlscene
+libraries:
+  freej2me:
+    builder: custom
+    dependencies_host:
+      - ant
+    build:
+      - ant
