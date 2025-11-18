@@ -3,7 +3,7 @@ builder: custom
 kill: java
 build:
   - rm -rf jdk*
-  - if [[ "${ARCH}" == "amd64" ]]; then ARCH_DOWNLOAD="x64"; elif [[ "${ARCH}" == "arm64" ]]; then ARCH_DOWNLOAD="aarch64"; else echo "Unsupported architecture (${ARCH})! Only amd64 and arm64 are supported."; exit 1; fi; wget https://download.java.net/java/GA/jdk21.0.2/f2283984656d49d69e91c558476027ac/13/GPL/openjdk-21.0.2_linux-${ARCH_DOWNLOAD}_bin.tar.gz -O jdk.tar.gz
+  - if [[ "${ARCH}" == "amd64" ]]; then ARCH_DOWNLOAD="x64"; elif [[ "${ARCH}" == "arm64" ]]; then ARCH_DOWNLOAD="aarch64"; else echo "Unsupported architecture (${ARCH})! Only amd64 and arm64 are supported."; exit 1; fi; wget https://download.java.net/java/GA/jdk25/bd75d5f9689641da8e1daabeccb5528b/36/GPL/openjdk-25_linux-${ARCH_DOWNLOAD}_bin.tar.gz -O jdk.tar.gz
   - tar -xzf ${BUILD_DIR}/jdk.tar.gz
 install_root_data:
   - manifest.json
