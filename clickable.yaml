@@ -1,10 +1,25 @@
 clickable_minimum_required: 8.0.0
-builder: pure-qml-cmake
-kill: qmlscene
+builder: custom
+kill: java
+build:
+  - rm -rf jdk*
+  - wget -c https://download.java.net/java/GA/jdk21.0.2/f2283984656d49d69e91c558476027ac/13/GPL/openjdk-21.0.2_linux-x64_bin.tar.gz
+  - tar -xzf ${BUILD_DIR}/openjdk-21.0.2_linux-x64_bin.tar.gz
+install_root_data:
+  - manifest.json
+  - jarman.apparmor
+  - jarman.desktop
+  - assets
+  - midlet.jar
+  - build/$ARCH_TRIPLET/freej2me/build/freej2me.jar
+  - ${BUILD_DIR}/jdk-21.0.2/
 libraries:
   freej2me:
     builder: custom
     dependencies_host:
       - ant
+    prebuild:
+      - cp -a ../../../libs/freej2me/* .
     build:
       - ant
+      - echo ${ARCH}

@@ -1,6 +1,6 @@
 [Desktop Entry]
-_Name=JarMan
-Exec=qmlscene %U qml/Main.qml
+Name=JarMan
+Exec=./jdk-21.0.2/bin/java -jar freej2me.jar "file://$(pwd)/midlet.jar"
 Icon=assets/logo.svg
 Terminal=false
 Type=Application
