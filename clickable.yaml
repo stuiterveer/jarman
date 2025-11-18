@@ -3,8 +3,9 @@ builder: custom
 kill: java
 build:
   - rm -rf jdk*
-  - if [[ "${ARCH}" == "amd64" ]]; then ARCH_DOWNLOAD="x64"; elif [[ "${ARCH}" == "arm64" ]]; then ARCH_DOWNLOAD="aarch64"; else echo "Unsupported architecture (${ARCH})! Only amd64 and arm64 are supported."; exit 1; fi; wget https://download.java.net/java/GA/jdk25/bd75d5f9689641da8e1daabeccb5528b/36/GPL/openjdk-25_linux-${ARCH_DOWNLOAD}_bin.tar.gz -O jdk.tar.gz
-  - tar -xzf ${BUILD_DIR}/jdk.tar.gz
+  - if [[ "${ARCH}" == "amd64" ]]; then ARCH_DOWNLOAD="x64"; elif [[ "${ARCH}" == "arm64" ]]; then ARCH_DOWNLOAD="aarch64"; else echo "Unsupported architecture (${ARCH})! Only amd64 and arm64 are supported."; exit 1; fi; wget -c -O openjdk.tar.gz https://download.java.net/java/GA/jdk25/bd75d5f9689641da8e1daabeccb5528b/36/GPL/openjdk-25_linux-${ARCH_DOWNLOAD}_bin.tar.gz
+  - if ! [ -d openjdk ]; then echo "extracting"; tar -xzf openjdk.tar.gz; fi
+  - if ! [ -d openjdk ]; then echo "renaming"; mv jdk-* openjdk; fi
 install_root_data:
   - manifest.json
   - jarman.apparmor
@@ -12,7 +13,7 @@ install_root_data:
   - assets
   - midlet.jar
   - build/$ARCH_TRIPLET/freej2me/build/freej2me.jar
-  - ${BUILD_DIR}/jdk-*/
+  - ${BUILD_DIR}/openjdk/
 libraries:
   freej2me:
     builder: custom

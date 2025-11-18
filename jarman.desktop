@@ -1,6 +1,6 @@
 [Desktop Entry]
 Name=JarMan
-Exec=./jdk-25/bin/java -jar freej2me.jar "file://$(pwd)/midlet.jar"
+Exec=./openjdk/bin/java -jar freej2me.jar "file://$(pwd)/midlet.jar"
 Icon=assets/logo.svg
 Terminal=false
 Type=Application
