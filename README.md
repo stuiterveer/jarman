@@ -11,7 +11,6 @@ Import and run J2ME MIDlets
 
 ## Known issues
 
-- Currently only works for x64, compiling for aarch64 is being worked on.
 - Requires a keyboard to be connected, as freej2me will use keyboard bindings. Currently no OSK is provided.
 - No sound.
 
