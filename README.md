@@ -4,7 +4,7 @@ Import and run J2ME MIDlets
 
 ## Building
 
-1. Clone this repository including all submodules with `git clone --recurse-submodules https://github.com/stuiterveer/jarman.git`.
+1. Clone this repository.
 2. Put the .jar file you want in the root of this directory and name it `midlet.jar`.
 3. Compile freej2me first with `clickable build --libs`.
 4. Compile JarMan with `clickable build`.
