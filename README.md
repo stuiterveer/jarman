@@ -11,9 +11,7 @@ Import and run J2ME MIDlets
 
 ## Known issues
 
-- Will currently only run while not installed as click package (e.g. `clickable desktop`) due to incorrect directories.
 - Requires a keyboard to be connected, as freej2me will use keyboard bindings. Currently no OSK is provided.
-- No sound.
 
 ## License
 
