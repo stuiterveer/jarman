@@ -12,6 +12,7 @@ Import and run J2ME MIDlets
 ## Known issues
 
 - Requires a keyboard to be connected, as freej2me will use keyboard bindings. Currently no OSK is provided.
+- The screen is scaled weird. Tthe screen is filled completely with a dark rectangle, but only a small portion of that is used for rendering of the MIDlets.
 
 ## License
 
