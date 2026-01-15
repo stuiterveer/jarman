@@ -1,6 +1,6 @@
 [Desktop Entry]
 Name=JarMan
-Exec=./openjdk/bin/java -jar freej2me.jar "file://$(pwd)/midlet.jar"
+Exec=bash init.sh
 Icon=assets/logo.svg
 Terminal=false
 Type=Application

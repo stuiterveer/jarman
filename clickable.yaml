@@ -10,6 +10,8 @@ install_root_data:
   - manifest.json
   - jarman.apparmor
   - jarman.desktop
+  - utils/
+  - init.sh
   - assets
   - midlet.jar
   - build/$ARCH_TRIPLET/freej2me/build/freej2me.jar
