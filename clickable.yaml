@@ -26,4 +26,3 @@ libraries:
       - cp -a ../../../libs/freej2me/* .
     build:
       - ant
-      - echo ${ARCH}
