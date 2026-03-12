@@ -4,7 +4,7 @@ kill: java
 dependencies_target:
   - openjdk-21-jdk-headless
 build:
-  - if ! [ -d runtime ]; then jlink --add-modules java.base,java.compiler,java.datatransfer,java.desktop,java.instrument,java.logging,java.management,java.management.rmi,java.naming,java.net.http,java.prefs,java.rmi,java.scripting,java.se,java.security.jgss,java.security.sasl,java.smartcardio,java.sql,java.sql.rowset,java.transaction.xa,java.xml,java.xml.crypto --strip-debug --output runtime; fi
+  - if ! [ -d runtime ]; then jlink --add-modules java.desktop --strip-debug --output runtime; fi
 install_root_data:
   - manifest.json
   - jarman.apparmor
