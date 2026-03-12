@@ -7,4 +7,4 @@ if ! [ -z ${APP_ID} ]; then
         cd ${activeDir}
     fi
 fi
-${clickDir}/openjdk/bin/java -jar ${clickDir}/freej2me.jar "file://${clickDir}/midlet.jar"
+${clickDir}/runtime/bin/java -jar ${clickDir}/freej2me.jar "file://${clickDir}/midlet.jar"

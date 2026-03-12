@@ -4,8 +4,8 @@ kill: java
 dependencies_target:
   - openjdk-21-jdk-headless
 build:
-  - rm -rf openjdk
-  - jlink --add-modules java.base,java.compiler,java.datatransfer,java.desktop,java.instrument,java.logging,java.management,java.management.rmi,java.naming,java.net.http,java.prefs,java.rmi,java.scripting,java.se,java.security.jgss,java.security.sasl,java.smartcardio,java.sql,java.sql.rowset,java.transaction.xa,java.xml,java.xml.crypto --strip-debug --output openjdk
+  - rm -rf runtime
+  - jlink --add-modules java.base,java.compiler,java.datatransfer,java.desktop,java.instrument,java.logging,java.management,java.management.rmi,java.naming,java.net.http,java.prefs,java.rmi,java.scripting,java.se,java.security.jgss,java.security.sasl,java.smartcardio,java.sql,java.sql.rowset,java.transaction.xa,java.xml,java.xml.crypto --strip-debug --output runtime
 install_root_data:
   - manifest.json
   - jarman.apparmor
@@ -15,7 +15,7 @@ install_root_data:
   - assets
   - midlet.jar
   - build/$ARCH_TRIPLET/freej2me/build/freej2me.jar
-  - ${BUILD_DIR}/openjdk/
+  - ${BUILD_DIR}/runtime/
 libraries:
   freej2me:
     builder: custom
