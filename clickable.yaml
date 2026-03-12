@@ -1,11 +1,11 @@
 clickable_minimum_required: 8.0.0
 builder: custom
 kill: java
+dependencies_target:
+  - openjdk-21-jdk-headless
 build:
-  - rm -rf jdk*
-  - if [[ "${ARCH}" == "amd64" ]]; then ARCH_DOWNLOAD="x64"; elif [[ "${ARCH}" == "arm64" ]]; then ARCH_DOWNLOAD="aarch64"; else echo "Unsupported architecture (${ARCH})! Only amd64 and arm64 are supported."; exit 1; fi; wget -c -O openjdk.tar.gz https://download.java.net/java/GA/jdk25/bd75d5f9689641da8e1daabeccb5528b/36/GPL/openjdk-25_linux-${ARCH_DOWNLOAD}_bin.tar.gz
-  - if ! [ -d openjdk ]; then echo "extracting"; tar -xzf openjdk.tar.gz; fi
-  - if ! [ -d openjdk ]; then echo "renaming"; mv jdk-* openjdk; fi
+  - rm -rf openjdk
+  - jlink --add-modules java.base,java.compiler,java.datatransfer,java.desktop,java.instrument,java.logging,java.management,java.management.rmi,java.naming,java.net.http,java.prefs,java.rmi,java.scripting,java.se,java.security.jgss,java.security.sasl,java.smartcardio,java.sql,java.sql.rowset,java.transaction.xa,java.xml,java.xml.crypto --strip-debug --output openjdk
 install_root_data:
   - manifest.json
   - jarman.apparmor
