@@ -6,7 +6,7 @@ dependencies_host:
 dependencies_target:
   - openjdk-11-jdk-headless
 build:
-  - if ! [ -d runtime ]; then if [[ "${ARCH}" == "amd64" ]]; then QEMU_ARCH="x86_64"; elif [[ "${ARCH}" == "arm64" ]]; then QEMU_ARCH="aarch64"; fi; qemu-${QEMU_ARCH}-static /usr/bin/jlink --add-modules java.desktop --strip-debug --output runtime; fi
+  - if ! [ -d runtime ]; then if [[ "${ARCH}" == "amd64" ]]; then QEMU_ARCH="x86_64"; elif [[ "${ARCH}" == "arm64" ]]; then QEMU_ARCH="aarch64"; elif [[ "${ARCH}" == "armhf" ]]; then QEMU_ARCH="arm"; fi; qemu-${QEMU_ARCH}-static /usr/bin/jlink --add-modules java.desktop --strip-debug --output runtime; fi
 install_root_data:
   - manifest.json
   - jarman.apparmor
