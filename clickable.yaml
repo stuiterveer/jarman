@@ -1,10 +1,12 @@
 clickable_minimum_required: 8.0.0
 builder: custom
 kill: java
+dependencies_host:
+  - qemu-user-static
 dependencies_target:
-  - openjdk-21-jdk-headless
+  - openjdk-11-jdk-headless
 build:
-  - if ! [ -d runtime ]; then jlink --add-modules java.desktop --strip-debug --output runtime; fi
+  - if ! [ -d runtime ]; then if [[ "${ARCH}" == "amd64" ]]; then QEMU_ARCH="x86_64"; elif [[ "${ARCH}" == "arm64" ]]; then QEMU_ARCH="aarch64"; fi; qemu-${QEMU_ARCH}-static /usr/bin/jlink --add-modules java.desktop --strip-debug --output runtime; fi
 install_root_data:
   - manifest.json
   - jarman.apparmor
