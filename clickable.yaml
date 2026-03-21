@@ -15,6 +15,7 @@ install_root_data:
   - init.sh
   - assets
   - midlet.jar
+  - qml/
   - build/$ARCH_TRIPLET/freej2me/build/freej2me.jar
   - ${BUILD_DIR}/runtime/
 libraries:
