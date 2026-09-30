@@ -26,5 +26,6 @@ libraries:
     prebuild:
       - git submodule update --init --recursive
       - cp -a ../../../libs/freej2me/* .
+      - patch -p1 < ../../../freej2me.patch
     build:
       - ant
