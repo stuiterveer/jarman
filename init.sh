@@ -14,8 +14,9 @@ while ${DOLOOP}; do
     qmlscene qml/Main.qml
     if [ -f ${activeDir}/runJar ]; then
         DOLOOP=true
+        fileContents=$(cat ${activeDir}/runJar)
         rm ${activeDir}/runJar
         cd ${activeDir}
-        ${clickDir}/runtime/bin/java -jar ${clickDir}/freej2me.jar "file://${clickDir}/midlet.jar"
+        ${clickDir}/runtime/bin/java -jar ${clickDir}/freej2me.jar "file://${clickDir}/midlet.jar" ${fileContents}
     fi
 done

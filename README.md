@@ -12,7 +12,7 @@ Import and run J2ME MIDlets
 ## Known issues
 
 - Requires a keyboard to be connected, as freej2me will use keyboard bindings. Currently no OSK is provided.
-- The screen scaling sucks for the time being. Rendering is currently done at the native resolution of the MIDlet, which is only a very small portion of current-day phone screens.
+- Assumes your MIDlet has a height of 320 pixels and width of 240 pixels.
 
 ## License
 

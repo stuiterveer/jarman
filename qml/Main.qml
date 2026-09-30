@@ -1,6 +1,7 @@
 import QtQuick 2.7
 import Lomiri.Components 1.3
 import io.thp.pyotherside 1.4
+import QtQuick.Window 2.12
 
 MainView {
     id: root
@@ -27,7 +28,12 @@ MainView {
 
             text: "Run MIDlet"
             onClicked: {
-                python.call('jar.runJar', [], function(returnValue) {
+                var width = Screen.desktopAvailableWidth
+                var height = Screen.desktopAvailableHeight
+                var widthScaling = Math.floor(width / 240)
+                var heightScaling = Math.floor(height / 320)
+
+                python.call('jar.runJar', [width, height, Math.min(widthScaling, heightScaling)], function(returnValue) {
                     Qt.quit();
                 });
             }
