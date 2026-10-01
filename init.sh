@@ -17,6 +17,6 @@ while ${DOLOOP}; do
         fileContents=$(cat ${activeDir}/runJar)
         rm ${activeDir}/runJar
         cd ${activeDir}
-        ${clickDir}/runtime/bin/java -jar ${clickDir}/freej2me.jar "file://${clickDir}/midlet.jar" ${fileContents}
+        ${clickDir}/runtime/bin/java -jar ${clickDir}/freej2me.jar "file://${clickDir}/midlet.jar" 240 320 ${fileContents}
     fi
 done

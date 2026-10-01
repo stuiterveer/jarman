@@ -33,7 +33,7 @@ MainView {
                 var widthScaling = Math.floor(width / 240)
                 var heightScaling = Math.floor(height / 320)
 
-                python.call('jar.runJar', [width, height, Math.min(widthScaling, heightScaling)], function(returnValue) {
+                python.call('jar.runJar', [Math.min(widthScaling, heightScaling)], function(returnValue) {
                     Qt.quit();
                 });
             }
