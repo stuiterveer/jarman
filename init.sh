@@ -11,7 +11,7 @@ DOLOOP=true
 while ${DOLOOP}; do
     DOLOOP=false
     cd ${clickDir}
-    qmlscene qml/Main.qml
+    ./jarman
     if [ -f ${activeDir}/runJar ]; then
         DOLOOP=true
         fileContents=$(cat ${activeDir}/runJar)

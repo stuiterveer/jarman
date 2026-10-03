@@ -44,7 +44,7 @@ MainView {
         id: python
 
         Component.onCompleted: {
-            addImportPath(Qt.resolvedUrl('../utils/'));
+            addImportPath(Qt.resolvedUrl('../'));
 
             importModule('jar', function() {
                 console.log('module jar imported');
