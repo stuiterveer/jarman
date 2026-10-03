@@ -1,7 +1,5 @@
 #include <QGuiApplication>
 #include <QQuickView>
-#include <QJsonDocument>
-#include <QJsonObject>
 
 int main(int argc, char *argv[])
 {
