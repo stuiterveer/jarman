@@ -20,5 +20,5 @@ void Jar::run(int scaling) {
     QString java = installDir + "/runtime/bin/java";
     QString midletFile = "file://" + installDir + "/midlet.jar";
     QStringList arguments = {"-jar", installDir + "/freej2me.jar", midletFile, "320", "240", QString::number(scaling)};
-    //process.execute(java, arguments);
+    process.execute(java, arguments);
 }
