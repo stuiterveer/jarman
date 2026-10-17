@@ -1,5 +1,0 @@
-<RCC>
-    <qresource prefix="/">
-        <file>jar.py</file>
-    </qresource>
-</RCC>

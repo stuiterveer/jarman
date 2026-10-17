@@ -1,6 +1,6 @@
 [Desktop Entry]
 _Name=JarMan
-Exec=bash init.sh
+Exec=jarman
 Icon=assets/logo.svg
 Terminal=false
 Type=Application

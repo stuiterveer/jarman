@@ -3,6 +3,8 @@ import Lomiri.Components 1.3
 import io.thp.pyotherside 1.4
 import QtQuick.Window 2.12
 
+import Jar 0.1
+
 MainView {
     id: root
     objectName: 'mainView'
@@ -33,9 +35,7 @@ MainView {
                 var widthScaling = Math.floor(width / 240)
                 var heightScaling = Math.floor(height / 320)
 
-                python.call('jar.runJar', [Math.min(widthScaling, heightScaling)], function(returnValue) {
-                    Qt.quit();
-                });
+                Jar.run(Math.min(widthScaling, heightScaling))
             }
         }
     }
