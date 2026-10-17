@@ -1,15 +1,18 @@
 #include "jar.h"
 #include <QProcess>
 #include <QDir>
+#include <QStandardPaths>
 
 Jar::Jar() {
 
 }
 
 void Jar::run(int scaling) {
-    QDir::setCurrent("/home/phablet/.config/jarman.stuiterveer/");
+    QString installDir = QDir::currentPath();
+    QDir::setCurrent(QStandardPaths::writableLocation(QStandardPaths::AppConfigLocation));
     QProcess process;
-    QString file = "/opt/click.ubuntu.com/jarman.stuiterveer/current/runtime/bin/java";
-    QStringList arguments = {"-jar", "/opt/click.ubuntu.com/jarman.stuiterveer/current/freej2me.jar", "file:///opt/click.ubuntu.com/jarman.stuiterveer/current/midlet.jar", "320", "240", QString::number(scaling)};
-    process.execute(file, arguments);
+    QString java = installDir + "/runtime/bin/java";
+    QString midletFile = "file://" + installDir + "/midlet.jar";
+    QStringList arguments = {"-jar", installDir + "/freej2me.jar", midletFile, "320", "240", QString::number(scaling)};
+    process.execute(java, arguments);
 }
