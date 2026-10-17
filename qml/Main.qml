@@ -1,6 +1,5 @@
 import QtQuick 2.7
 import Lomiri.Components 1.3
-import io.thp.pyotherside 1.4
 import QtQuick.Window 2.12
 
 import Jar 0.1
@@ -37,22 +36,6 @@ MainView {
 
                 Jar.run(Math.min(widthScaling, heightScaling))
             }
-        }
-    }
-
-    Python {
-        id: python
-
-        Component.onCompleted: {
-            addImportPath(Qt.resolvedUrl('../'));
-
-            importModule('jar', function() {
-                console.log('module jar imported');
-            });
-        }
-
-        onError: {
-            console.log('python error: ' + traceback);
         }
     }
 }
