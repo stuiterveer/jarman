@@ -1,5 +1,3 @@
-#include <QDebug>
-
 #include "jar.h"
 #include <QProcess>
 #include <QDir>
