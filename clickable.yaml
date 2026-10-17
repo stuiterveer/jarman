@@ -1,28 +1,16 @@
 clickable_minimum_required: 8.0.0
 framework: ubuntu-touch-24.04-1.x
-builder: custom
+builder: cmake
 kill: java
 dependencies_host:
   - qemu-user-static
 dependencies_target:
   - openjdk-21-jdk-headless
-build:
+prebuild:
   - if ! [ -d runtime ]; then if [[ "${ARCH}" == "amd64" ]]; then QEMU_ARCH="x86_64"; elif [[ "${ARCH}" == "arm64" ]]; then QEMU_ARCH="aarch64"; elif [[ "${ARCH}" == "armhf" ]]; then QEMU_ARCH="arm"; fi; if ! [[ "$QEMU_ARCH" == "$(uname -m)" ]]; then QEMU_STRING="qemu-${QEMU_ARCH}-static"; else QEMU_STRING=""; fi; $QEMU_STRING /usr/bin/jlink --add-modules java.desktop --compress zip-9 --no-man-pages --strip-debug --no-header-files --output runtime; fi
-  - cp ../../../CMakeLists.txt .
-  - cp ../../../main.cpp .
-  - cp -r ../../../qml .
-  - cp -r ../../../utils .
-  - cmake .
-  - make
 install_root_data:
-  - manifest.json
-  - jarman.apparmor
-  - jarman.desktop
-  - utils/
   - init.sh
-  - assets
   - midlet.jar
-  - ${BUILD_DIR}/jarman
   - build/$ARCH_TRIPLET/freej2me/build/freej2me.jar
   - ${BUILD_DIR}/runtime/
 libraries:

@@ -26,7 +26,7 @@ MainView {
                 left: parent.left
             }
 
-            text: "Run MIDlet"
+            text: i18n.tr("Run MIDlet")
             onClicked: {
                 var width = Screen.desktopAvailableWidth
                 var height = Screen.desktopAvailableHeight
