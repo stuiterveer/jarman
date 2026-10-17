@@ -8,6 +8,7 @@ class Jar: public QObject {
 
 private:
     Q_INVOKABLE void ensureConfigDir();
+    QString configDir;
 
 public:
     Jar();
