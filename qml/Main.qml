@@ -29,8 +29,8 @@ MainView {
 
             text: i18n.tr("Run MIDlet")
             onClicked: {
-                var width = Screen.desktopAvailableWidth
-                var height = Screen.desktopAvailableHeight
+                var width = Window.width
+                var height = Window.height
                 var widthScaling = Math.floor(width / 240)
                 var heightScaling = Math.floor(height / 320)
 
